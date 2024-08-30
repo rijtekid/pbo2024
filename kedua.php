@@ -5,6 +5,11 @@ class Lingkaran
     const PHI = 3.14;
     public $jari_jari;
 
+    public function __construct($jari_jari) {
+        $this->jari_jari = $jari_jari;
+    }
+
+
     public function luas(): float {
         return self::PHI * $this->jari_jari * $this->jari_jari;
     }
@@ -19,6 +24,11 @@ class Bola
     const PHI = 3.14;
     public $jari_jari;
 
+    public function __construct($jari_jari) {
+        $this->jari_jari = $jari_jari;
+    }
+
+
     public function volume(): float {
         return (4 / 3) * self::PHI * pow($this->jari_jari, 3);
     }
@@ -28,6 +38,11 @@ class Tabung
 {
     const PHI = 3.14;
     public $jari_jari;
+
+    public function __construct($jari_jari) {
+        $this->jari_jari = $jari_jari;
+    }
+
 
     public function volume($tinggi): float {
         return self::PHI * pow($this->jari_jari, 2) * $tinggi;
@@ -39,22 +54,20 @@ class Kerucut
     const PHI = 3.14;
     public $jari_jari;
 
+    public function __construct($jari_jari) {
+        $this->jari_jari = $jari_jari;
+    }
+
+
     public function volume($tinggi): float {
         return (1 / 3) * self::PHI * pow($this->jari_jari, 2) * $tinggi;
     }
 }
 
-$lingkaran = new Lingkaran();
-$lingkaran->jari_jari = 4;
-
-$kerucut = new Kerucut();
-$kerucut->jari_jari = 4; 
-
-$bola = new Bola();
-$bola->jari_jari = 4;
-
-$tabung = new Tabung();
-$tabung->jari_jari = 4;
+$lingkaran = new Lingkaran(4);
+$kerucut = new Kerucut(4);
+$bola = new Bola(4);
+$tabung = new Tabung(4);
 
 $luastanah = $lingkaran->luas();
 $kelilingtanah = $lingkaran->keliling();
