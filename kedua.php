@@ -1,46 +1,48 @@
 <?php
-function luasLingkaran($jari) : float {
-    $luas = 3.14 * $jari * $jari;
-    return $luas;
+
+class Lingkaran
+{
+    const PHI = 3.14;
+
+
+    public function luas($jari_jari) : float {
+        return self::PHI*$jari_jari*$jari_jari;
+    }
+
+
+    public function keliling($jari_jari) : float {
+        return 2*self::PHI*$jari_jari;
+    }
 }
 
-function kelilingLingkaran($jari) : float {
-    $keliling = 2 * 3.14 * $jari;
-    return $keliling;
+
+class Bola
+{
+    const PHI = 3.14;
+    public function volume($jari_jari) : float {
+        return (4/3)*self::PHI*pow($jari_jari,3);
+    }
 }
 
-function volumeBola($jari) : float {
-    $volume = (4 / 3) * 3.14 * pow($jari, 3);
-    return $volume;
+
+class Tabung
+{
+    const PHI = 3.14;
+    public function volume($jari_jari,$tinggi) : float {
+        return self::PHI*pow($jari_jari,2)*$tinggi;
+    }
 }
 
-function volumeTabung($jari, $tinggi) : float {
-    $volume = 3.14 * pow($jari, 2) * $tinggi;
-    return $volume;
+
+class Kerucut
+{
+    const PHI = 3.14;
+    public function volume($jari_jari,$tinggi) : float {
+        return (1/3)*self::PHI*pow($jari_jari,2)*$tinggi;
+    }
 }
 
-function volumeKerucut($jari, $tinggi) : float {
-    $volume = (1 / 3) * 3.14 * pow($jari, 2) * $tinggi;
-    return $volume;
-}
+$nasi_tumpeng = (new Kerucut())->volume(4,10);
 
-$luas_tanah = luasLingkaran(45);
-echo "Luas tanah budi adalah {$luas_tanah}\n";
-
-$keliling_lingkaran = kelilingLingkaran(39);
-echo "Keliling lingkaran adalah {$keliling_lingkaran}\n";
-
-$volume_bola = volumeBola(18);
-echo "Volume bola adalah {$volume_bola}\n";
-
-$jari_tabung = 10; 
-$panjang_tabung = 20; 
-$volume_tabung = volumeTabung($jari_tabung, $panjang_tabung);
-echo "Volume tabung adalah {$volume_tabung}\n";
-
-$jari_kerucut = 15; 
-$panjang_kerucut = 12; 
-$volume_kerucut = volumeKerucut($jari_kerucut, $panjang_kerucut);
-echo "Volume kerucut adalah {$volume_kerucut}\n";
+echo "Volume nasi tumpeng adalah {$nasi_tumpeng} cm³"
 ?>
-
