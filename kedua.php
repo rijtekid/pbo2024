@@ -1,84 +1,46 @@
 <?php
-
-class Lingkaran
-{
-    const PHI = 3.14;
-    public $jari_jari;
-
-    public function __construct($jari_jari) {
-        $this->jari_jari = $jari_jari;
-    }
-
-
-    public function luas(): float {
-        return self::PHI * $this->jari_jari * $this->jari_jari;
-    }
-
-    public function keliling(): float {
-        return 2 * self::PHI * $this->jari_jari;
-    }
+function luasLingkaran($jari) : float {
+    $luas = 3.14 * $jari * $jari;
+    return $luas;
 }
 
-class Bola
-{
-    const PHI = 3.14;
-    public $jari_jari;
-
-    public function __construct($jari_jari) {
-        $this->jari_jari = $jari_jari;
-    }
-
-
-    public function volume(): float {
-        return (4 / 3) * self::PHI * pow($this->jari_jari, 3);
-    }
+function kelilingLingkaran($jari) : float {
+    $keliling = 2 * 3.14 * $jari;
+    return $keliling;
 }
 
-class Tabung
-{
-    const PHI = 3.14;
-    public $jari_jari;
-
-    public function __construct($jari_jari) {
-        $this->jari_jari = $jari_jari;
-    }
-
-
-    public function volume($tinggi): float {
-        return self::PHI * pow($this->jari_jari, 2) * $tinggi;
-    }
+function volumeBola($jari) : float {
+    $volume = (4 / 3) * 3.14 * pow($jari, 3);
+    return $volume;
 }
 
-class Kerucut
-{
-    const PHI = 3.14;
-    public $jari_jari;
-
-    public function __construct($jari_jari) {
-        $this->jari_jari = $jari_jari;
-    }
-
-
-    public function volume($tinggi): float {
-        return (1 / 3) * self::PHI * pow($this->jari_jari, 2) * $tinggi;
-    }
+function volumeTabung($jari, $tinggi) : float {
+    $volume = 3.14 * pow($jari, 2) * $tinggi;
+    return $volume;
 }
 
-$lingkaran = new Lingkaran(4);
-$kerucut = new Kerucut(4);
-$bola = new Bola(4);
-$tabung = new Tabung(4);
+function volumeKerucut($jari, $tinggi) : float {
+    $volume = (1 / 3) * 3.14 * pow($jari, 2) * $tinggi;
+    return $volume;
+}
 
-$luastanah = $lingkaran->luas();
-$kelilingtanah = $lingkaran->keliling();
-$nasi_tumpeng = $kerucut->volume(10);
-$bola_angin = $bola->volume();
-$botol = $tabung->volume(10);
+$luas_tanah = luasLingkaran(45);
+echo "Luas tanah budi adalah {$luas_tanah}\n";
 
-echo "Luas tanah adalah {$luastanah} m² \n";
-echo "Keliling tanah adalah {$kelilingtanah} m² \n";
-echo "Volume nasi tumpeng adalah {$nasi_tumpeng} cm³ \n";
-echo "Volume bola adalah {$bola_angin} cm³ \n";
-echo "Volume botol adalah {$botol} cm³ \n";
+$keliling_lingkaran = kelilingLingkaran(39);
+echo "Keliling lingkaran adalah {$keliling_lingkaran}\n";
 
+$volume_bola = volumeBola(18);
+echo "Volume bola adalah {$volume_bola}\n";
+
+$jari_tabung = 10; 
+$panjang_tabung = 20; 
+$volume_tabung = volumeTabung($jari_tabung, $panjang_tabung);
+echo "Volume tabung adalah {$volume_tabung}\n";
+
+$jari_kerucut = 15; 
+$panjang_kerucut = 12; 
+$volume_kerucut = volumeKerucut($jari_kerucut, $panjang_kerucut);
+echo "Volume kerucut adalah {$volume_kerucut}\n";
 ?>
+
